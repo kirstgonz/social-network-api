@@ -22,18 +22,13 @@ const UserSchema = new Schema(
         message: "Please enter a valid email address!"
     },
     },
-    createdAt: {
-      type: Date,
-      default: Date.now,
-      get: createdAtVal => dateFormat(createdAtVal)
-    },
     thoughts: [],
-    friends: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: 'Comment'
-      }
-    ]
+    // friends: [
+    //   {
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'Comment'
+    //   }
+    // ]
   },
   {
     toJSON: {
@@ -45,7 +40,7 @@ const UserSchema = new Schema(
   }
 );
 
-// get total count of comments and replies on retrieval
+// get total count of friends and replies on retrieval
 UserSchema.virtual('friendCount').get(function() {
   return this.friends.reduce(
     (total, friends) => total + friends.length + 1,
