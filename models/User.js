@@ -22,13 +22,18 @@ const UserSchema = new Schema(
         message: "Please enter a valid email address!"
     },
     },
-    thoughts: [],
-    // friends: [
-    //   {
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'Comment'
-    //   }
-    // ]
+    thoughts: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Thought'
+      }
+    ],
+    friends: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Friend'
+      }
+    ]
   },
   {
     toJSON: {

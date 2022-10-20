@@ -5,7 +5,7 @@ const userController = {
   getAllUser(req, res) {
     User.find({})
       .populate({
-        path: 'users',    //WHAT IS THIS SUPPOSED TO BE 'users'??
+        path: 'thoughts',
         select: '-__v'
       })
       .select('-__v')
@@ -21,7 +21,7 @@ const userController = {
   getUserById({ params }, res) {
     User.findOne({ _id: params.id })
       .populate({
-        path: 'users', //WHAT IS THE PATH NAME PLEASE
+        path: 'thoughts',
         select: '-__v'
       })
       .select('-__v')
